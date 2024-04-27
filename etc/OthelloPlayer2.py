@@ -35,23 +35,12 @@ def GetPosition(stone, board):
                 else:
                     enemy = 'B'
                 if 8 > i + di >= 0 and 8 > j + dj >= 0 and board[i + di][j + dj] == enemy and Changable(i, j, di, dj, stone, board):
-                    loc += (str(i)+","+str(j))
-    #break
-    for k in loc:
-        if k in pro1:
-            return loc
-
-    for k in loc:
-        if k in pro2:
-            return loc
-        
-    for k in loc:
-        if k in pro3:
-            return loc
-        
-    for k in loc:
-        if k in pro4:
-            return loc
+                    loc = (str(i)+","+str(j))
+                    for k in [1,2,3,4]:
+                        chk = "pro" + str(k)
+                        if loc in chk:
+                            return loc
+                    return loc
     
     return "-1,-1"
 
