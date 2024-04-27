@@ -20,7 +20,7 @@ def GetPosition(stone, board):
     pro2 = ("2,2", "5,2", "2,5", "5,5")
     pro3 = ("0,2", "2,0", "5,0", "7,2", "0,5", "2,7", "5,7", "7,5")
     pro4 = ("3,0", "4,0", "3,7", "4,7", "7,3", "7,4", "0,3", "0,4")
-    loc = []    
+    loc = ()
     for i in range(8):
         for j in range(8):
             if board[i][j] in 'WB':
@@ -35,7 +35,7 @@ def GetPosition(stone, board):
                 else:
                     enemy = 'B'
                 if 8 > i + di >= 0 and 8 > j + dj >= 0 and board[i + di][j + dj] == enemy and Changable(i, j, di, dj, stone, board):
-                    loc += [str(i)+","+str(j)]
+                    loc += (str(i)+","+str(j))
     #break
     for k in loc:
         if k in pro1:
