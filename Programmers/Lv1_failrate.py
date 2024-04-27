@@ -13,5 +13,8 @@ for i in range(1, N+1): # 1 2 3 4 5
     else:
         fail[i] = cnt/ giri
         giri -= cnt
-ans = sorted(fail.items(), key = lambda x: x[1], reverse = True)
-print([ans[i][0] for i in range(N)])
+ans1 = sorted(fail, key= lambda x: fail[x], reverse=True)
+
+ans2 = sorted(fail.items(), key= lambda x: x[1], reverse=True)
+print([ans2[i][0] for i in range(N)])
+
