@@ -20,7 +20,7 @@ def GetPosition(stone, board):
     pro2 = ("2,2", "5,2", "2,5", "5,5")
     pro3 = ("0,2", "2,0", "5,0", "7,2", "0,5", "2,7", "5,7", "7,5")
     pro4 = ("3,0", "4,0", "3,7", "4,7", "7,3", "7,4", "0,3", "0,4")
-    loc = ()
+    ok = 0
     for i in range(8):
         for j in range(8):
             if board[i][j] in 'WB':
@@ -36,13 +36,17 @@ def GetPosition(stone, board):
                     enemy = 'B'
                 if 8 > i + di >= 0 and 8 > j + dj >= 0 and board[i + di][j + dj] == enemy and Changable(i, j, di, dj, stone, board):
                     loc = (str(i)+","+str(j))
+                    #1st
                     for k in [1,2,3,4]:
                         chk = "pro" + str(k)
                         if loc in chk:
                             return loc
-                    return loc
-    
-    return "-1,-1"
+                    ok = 1
+            
+    if ok = 1:
+        return loc
+    else:
+        return "-1,-1"
 
 if __name__ == "__main__":
     sock = socket(AF_INET, SOCK_STREAM)
